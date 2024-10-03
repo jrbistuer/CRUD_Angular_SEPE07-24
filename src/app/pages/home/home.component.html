@@ -1,3 +1,40 @@
 <app-header [title]="'Home'"></app-header>
 
 <a [routerLink]="'/about-us'">Ir a About-Us</a>
+
+<h1>Listado de Vacances</h1>
+
+<div>
+    <div *ngFor="let v of vacances; index as $i">Vacanca: {{v.nom}}
+        <span class="link" (click)="removeVacanca($i)">remove</span>
+        <span class="link" (click)="editVacanca($i)">edit</span>
+    </div>
+</div>
+
+<h1>Insertar Vacanca</h1>
+
+<div>
+
+    Ejemplo Double Binding básico:
+    <input type="text" [(ngModel)]="testdoublebinding" /> <br/>
+    {{testdoublebinding}}<br /><br /><br />
+
+    <form [formGroup]="vacancaForm">
+
+        Nom:
+        <input type="text" formControlName="nom" /> <br/>
+
+        Preu:
+        <input type="text" formControlName="preu" /> <br/>
+
+        Pais:
+        <input type="text" formControlName="pais" /> <br/>
+
+        Descripcio
+        <input type="text" formControlName="descripcio" /> <br/>
+
+        <button type="button" (click)="saveVacanca()">Save Vacanca</button>
+
+    </form>
+
+</div>
