@@ -59,17 +59,18 @@ export class HomeComponent implements OnInit {
   }
 
   getVacances() {
-    const v: IVacanca[] = this.vacancesService.getVacances();
-    this.vacances = v;
+    this.vacancesService.getVacances().subscribe((vacances: IVacanca[]) => {
+      this.vacances = vacances;
+    });
   }
 
-  editVacanca(i: number) {
-    const v: IVacanca = this.vacancesService.getVacancaById(i);
-    console.log(v);    
+  editVacanca(id: string) {
+    this.vacancesService.getVacancaById(id).subscribe((vacanca: IVacanca) => {
+      console.log(vacanca);    
+    });
   }
 
-  removeVacanca(i: number) {
-    this.vacances = this.vacancesService.removeVacanca(i);
+  removeVacanca(vacanca: IVacanca) {
   }
 
 }

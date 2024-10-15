@@ -6,8 +6,8 @@
 
 <div>
     <div *ngFor="let v of vacances; index as $i">Vacanca: {{v.nom}}
-        <span class="link" (click)="removeVacanca($i)">remove</span>
-        <span class="link" (click)="editVacanca($i)">edit</span>
+        <span class="link" (click)="removeVacanca(v)">remove</span>
+        <span class="link" (click)="editVacanca(v.id!)">edit</span>
     </div>
 </div>
 
